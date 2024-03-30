@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
+#include <libft.h>
 
 char    *ft_strrchr(const char *s, int c)
 {
@@ -19,10 +19,7 @@ char    *ft_strrchr(const char *s, int c)
     char    tofind;
 
     i = 0;
-    if (c > 9)
-    {
 
-    }
 
 
 }
