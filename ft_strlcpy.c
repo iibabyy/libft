@@ -15,5 +15,6 @@ int strlcpy(const char *src, char *dst, int size)
         dst[i] = src[i];
         i++;
     }
-    dst[i] = 
+    dst[i] = '\0';
+    return (retval);
 }
