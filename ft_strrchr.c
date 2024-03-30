@@ -16,9 +16,11 @@ char    *ft_strrchr(const char *s, int c)
 {
     int     i;
     int     save;
-    char    tofind;
+    char    *tofind;
+    char    *retval;
 
     i = 0;
+    tofind = ft_itoa
 
 
 

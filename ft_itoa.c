@@ -11,7 +11,8 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <libft.h>
+#include <stdio.h>
+#include "libft.h"
 
 static int  numlen(int num)
 {
@@ -42,7 +43,7 @@ static void reversetab(char *str)
     }
 }
 
-char    *itoa(int c)
+char    *ft_itoa(int c)
 {
     int     i;
     char    *str;
@@ -60,14 +61,13 @@ char    *itoa(int c)
 }
 
 
-/*#include <stdio.h>
-#include <stdlib.h>
+
 int main (int ac, char **av)
 {
     if (ac == 2)
     {
-        printf("il y a %d chiffres dans %d\n", numlen(atoi(av[1])), atoi(av[1]));
-        printf("l'entier rentre en parametes est %s\n", itoa(atoi(av[1])));
+        printf("il y a %d chiffres dans %d\n", numlen(ft_atoi(av[1])), ft_atoi(av[1]));
+        printf("l'entier rentre en parametes est %s\n", ft_itoa(ft_atoi(av[1])));
     }
     return 0;
-}*/
+}

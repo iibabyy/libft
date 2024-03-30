@@ -1,4 +1,4 @@
-int strlcpy(const char *src, char *dst, int size)
+int ft_strlcpy(const char *src, char *dst, int size)
 {
     int i;
     int retval;
