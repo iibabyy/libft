@@ -49,6 +49,8 @@ char    *ft_itoa(int c)
 
     i = 0;
     str = malloc(sizeof(char) * (numlen(c) + 1));
+    if (str == 0)
+        return (0);
     while (c)
     {
         str[i++] = c % 10 + '0';

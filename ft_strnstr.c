@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char *ft_strnstr(char *big, char *little, int n)
+char	*ft_strnstr(char *big, char *little, int n)
 {
     int     i;
     int     j;
