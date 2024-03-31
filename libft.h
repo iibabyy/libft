@@ -16,5 +16,9 @@ char    *ft_strnstr(char *big, char *little, int n);
 char    *ft_strrchr(const char *s, int c);
 void    ft_tolower(char c);
 void    ft_toupper(char c);
+void    *ft_memset(void *array, int value, int hmany);
+void    ft_bzero(void *array, int lim);
+char    *ft_strchr(const char *str, int c);
+void    *ft_memcpy(void *dest, const void *src, int n);
 
 #endif

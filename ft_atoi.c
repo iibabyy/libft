@@ -1,5 +1,3 @@
-#include "libft.h"
-
 int ft_atoi(char *str)
 {
     int i;
@@ -18,8 +16,20 @@ int ft_atoi(char *str)
     }
     while (str[i] >= '0' && str[i] <= '9')
     {
-        number = number * 10 + (str[i] + '0');
+        number = number * 10 + (str[i] - '0');
         i++;
     }
     return (number * sign);
 }
+
+/*
+#include <stdio.h>
+int main(int ac, char **av)
+{
+    if (ac == 2)
+    {
+        printf ("l'entier entre en parametre est %d\n", ft_atoi(av[1]));
+    }
+    return (0);
+}
+*/

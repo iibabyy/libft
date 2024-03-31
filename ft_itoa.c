@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
 
 static int  numlen(int num)
@@ -60,14 +59,15 @@ char    *ft_itoa(int c)
     return (str);
 }
 
-
-
+/*
+#include <stdio.h>
 int main (int ac, char **av)
 {
     if (ac == 2)
     {
         printf("il y a %d chiffres dans %d\n", numlen(ft_atoi(av[1])), ft_atoi(av[1]));
-        printf("l'entier rentre en parametes est %s\n", ft_itoa(ft_atoi(av[1])));
+        printf("l'entier rentre en parametes est %s\n", ft_itoa(atoi(av[1])));
     }
     return 0;
 }
+*/
