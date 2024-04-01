@@ -1,1 +1,84 @@
-char    *ft_substr(char const *s, unsigned int start, size_t len);
+#include <stddef.h>
+#include <stdlib.h>
+#include "libft.h"
+
+/*
+char    *ft_substr(char const *s, unsigned int start, size_t len)
+{
+    int     i;
+    int     size;
+    const char    *str;
+
+    i = 0;
+    if (len >= ft_strlen(s + start))
+        str = malloc(sizeof(char) * ft_strlen(s + start));
+    else
+        str = malloc(sizeof(char) * len);
+    while (s[start + i] && i < len)
+    {
+        str[i] = s[start + i];
+        i++;
+    }
+    str[i] = '\0';
+}
+*/
+
+char    *ft_substr(char const *s, unsigned int start, size_t len)
+{
+    char    *str;
+
+    if (!(str = malloc(sizeof(char) * len)))
+		return (NULL);
+    if (len >= ft_strlen((char *)(s + start)))
+        ft_memmove(str, (s + start), ft_strlen((char *)(s + start)));
+    else
+        ft_memmove(str, (s + start), len);
+    return (str);
+}
+
+/*
+#include <unistd.h>
+
+static void		ft_print_result(char const *s)
+{
+	int		len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	write(1, s, len);
+}
+
+static void		check_substr(char *str, int start, int len)
+{
+	char	*substr;
+
+	if (!(substr = ft_substr(str, start, len)))
+		ft_print_result("NULL");
+	else
+		ft_print_result(substr);
+	if (str == substr)
+		ft_print_result("\nA new string was not returned");
+	else
+		free(substr);
+}
+
+int				main(int argc, const char *argv[])
+{
+	char	str[] = "lorem ipsum dolor sit amet";
+	int		arg;
+
+	alarm(5);
+	if (argc == 1)
+		return (0);
+	else if ((arg = atoi(argv[1])) == 1)
+		check_substr(str, 0, 10);
+	else if (arg == 2)
+		check_substr(str, 7, 10);
+	else if (arg == 3)
+		check_substr(str, 7, 0);
+	else if (arg == 4)
+		check_substr(str, 0, 0);
+	return (0);
+}
+*/

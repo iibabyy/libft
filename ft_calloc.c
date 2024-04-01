@@ -1,7 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/31 22:33:28 by ibaby             #+#    #+#             */
+/*   Updated: 2024/03/31 22:33:28 by ibaby            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include "libft.h"
+#include <stddef.h>
 
-void    *ft_calloc(int el_count, int el_size)
+void    *ft_calloc(size_t el_count, size_t el_size)
 {
     unsigned char   *buffer;
 

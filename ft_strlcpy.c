@@ -1,4 +1,18 @@
-int ft_strlcpy(const char *src, char *dst, int size)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/31 22:34:24 by ibaby             #+#    #+#             */
+/*   Updated: 2024/03/31 22:34:24 by ibaby            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stddef.h>
+
+size_t ft_strlcpy(const char *src, char *dst, size_t size)
 {
     int i;
     int retval;

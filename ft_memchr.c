@@ -1,4 +1,18 @@
-void    *ft_memchr(const void *str, int tofind, int n)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/31 22:34:03 by ibaby             #+#    #+#             */
+/*   Updated: 2024/03/31 22:34:03 by ibaby            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stddef.h>
+
+void    *ft_memchr(const void *str, int tofind, size_t n)
 {
     int                 i;
     unsigned const char *s;

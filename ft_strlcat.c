@@ -1,4 +1,18 @@
-int ft_strlcat(char *dst, const char *src, int size)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/31 22:34:22 by ibaby             #+#    #+#             */
+/*   Updated: 2024/03/31 22:34:22 by ibaby            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stddef.h>
+
+size_t ft_strlcat(char *dst, const char *src, size_t size)
 {
     int     i;
     int     j;

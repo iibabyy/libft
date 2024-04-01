@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/29 23:04:55 by marvin            #+#    #+#             */
-/*   Updated: 2024/03/29 23:04:55 by marvin           ###   ########.fr       */
+/*   Created: 2024/03/31 22:34:30 by ibaby             #+#    #+#             */
+/*   Updated: 2024/03/31 22:34:30 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(char *big, char *little, int n)
+char	*ft_strnstr(const char *big, const char *little, size_t n)
 {
     int     i;
     int     j;
@@ -21,16 +21,16 @@ char	*ft_strnstr(char *big, char *little, int n)
 
     i = 0;
     j = 0;
-    if (ft_strlen(little) == 0 || !little)
-        return (big);
+    if (ft_strlen((char *)little) == 0 || !little)
+        return ((char *)big);
     while (big[i] && i < n)
     {
         if (big[i] == little[j])
         {
             while (big[i + j] == little[j] && big[i + j] && little[j] && i + j < n)
             { 
-                if (j + 1 == ft_strlen(little))
-                    return (retval = &big[i], retval);
+                if (j + 1 == ft_strlen((char *)little))
+                    return (retval = (char *)&big[i], retval);
                 j++;
             }
             j = 0;
@@ -40,15 +40,9 @@ char	*ft_strnstr(char *big, char *little, int n)
     return (retval = 0);
 }
 
-/*int main(int ac, char **av)
-{
-    if (ac == 1)
-    {
-        printf ("%s\n", ft_strnstr("lorem ipsum dolor sit amet", "", 10));
-    }
-}*/
-
-/*#include <unistd.h>
+/*
+#include <unistd.h>
+#include <stdlib.h>
 
 static void		ft_print_result(char const *s)
 {
@@ -98,4 +92,5 @@ int				main(int argc, const char *argv[])
 	else if (arg == 10)
 		check_strnstr("lorem ipsum dolor sit amet", "dolor", 0);
 	return (0);
-}*/
+}
+*/
