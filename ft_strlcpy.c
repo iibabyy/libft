@@ -22,9 +22,9 @@ size_t ft_strlcpy(const char *src, char *dst, size_t size)
         i++;
     retval = i;
     i = 0;
-    if (retval >= size)
+    if (retval >= (int)size)
         return -1;
-    while (i < size)
+    while (i < (int)size)
     {
         dst[i] = src[i];
         i++;

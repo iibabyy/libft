@@ -14,10 +14,8 @@
 
 void    *ft_memchr(const void *str, int tofind, size_t n)
 {
-    int                 i;
     unsigned const char *s;
-
-    i = 0;
+    
     s = str;
     while (n--)
     {

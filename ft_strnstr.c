@@ -16,20 +16,19 @@ char	*ft_strnstr(const char *big, const char *little, size_t n)
 {
     int     i;
     int     j;
-    int     count;
     char    *retval;
 
     i = 0;
     j = 0;
     if (ft_strlen((char *)little) == 0 || !little)
         return ((char *)big);
-    while (big[i] && i < n)
+    while (big[i] && i < (int)n)
     {
         if (big[i] == little[j])
         {
-            while (big[i + j] == little[j] && big[i + j] && little[j] && i + j < n)
+            while (big[i + j] == little[j] && big[i + j] && little[j] && i + j < (int)n)
             { 
-                if (j + 1 == ft_strlen((char *)little))
+                if (j + 1 == (int)ft_strlen((char *)little))
                     return (retval = (char *)&big[i], retval);
                 j++;
             }

@@ -21,9 +21,9 @@ int     ft_memcmp(const void *str1, const void *str2, size_t n)
     i = 0;
     s1 = str1;
     s2 = str2;
-    while (*(s1 + i) == *(s2 + i) && i < n)
+    while (*(s1 + i) == *(s2 + i) && i < (int)n)
         i++;
-    if (i >= n)
+    if (i >= (int)n)
         return (0);
     return (*(s1 + i) - *(s2 + i));  
 }

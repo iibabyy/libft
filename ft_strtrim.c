@@ -23,14 +23,15 @@ char    *ft_strtrim(const char *s1, const char *set)
     i = 0;
     start = 0;
     end = (ft_strlen((char *)s1) > 0)? ft_strlen((char *)s1) - 1: ft_strlen((char *)s1);
-    while (ft_strchr(set, s1[start]) && i++ < ft_strlen((char *)s1))
+    while (ft_strchr(set, s1[start]) && i++ < (int)ft_strlen((char *)s1))
         start++;
     i = 0;
-    while (ft_strchr(set, s1[end]) && i++ < ft_strlen((char *)s1))
+    while (ft_strchr(set, s1[end]) && i++ < (int)ft_strlen((char *)s1))
         end--;
     if(!(str = malloc (sizeof(char) * (end - start +1))))
 		return (0);
     str = ft_memmove(str, (s1 + start), (end - start + 1));
+	return (str);
 }
 
 /*

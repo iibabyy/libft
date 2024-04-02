@@ -15,17 +15,14 @@
 
 void    *ft_memset(void *array, int value, size_t hmany)
 {
-    int     i;
     unsigned char   *tab;
 
-    i = 0;
     tab = array;
     while (hmany--)
-    {
         *tab++ = value;
-    }
     return (array);
 }
+
 /*
 #include <stdio.h>
 #include <unistd.h>
@@ -45,6 +42,7 @@ int main(int ac, char **av)
     return (0);
 }
 */
+
 /*
 #include <stdlib.h>
 #include <unistd.h>
