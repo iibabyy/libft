@@ -18,9 +18,8 @@ void    *ft_calloc(size_t el_count, size_t el_size)
 {
     unsigned char   *buffer;
 
-    buffer = malloc(el_size * el_count);
-    if (buffer == 0)
-        return (0);
+    if (!(buffer = malloc(el_size * el_count)))
+        return (NULL);
     buffer = ft_memset(buffer, 0, (el_count * el_size));
     return (buffer);
 }
