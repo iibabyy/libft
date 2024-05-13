@@ -21,10 +21,10 @@ static t_list *ft_lstdup(t_list *lst)
 
     if (!lst)
         return (NULL);
-    originalnode = lst->next;
     if (!(newhead = malloc(sizeof(t_list))))
         return (NULL);
     newhead = lst;
+    originalnode = lst->next;
     while (originalnode)
     {
         if (!(newnode = ft_lstnew(originalnode->content)))
