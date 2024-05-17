@@ -1,30 +1,30 @@
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    unsigned int    i;
-    char            *str;
+	unsigned int	i;
+	char			*str;
 
-    i = 0;
-    if (!(str = malloc(sizeof(char) * (ft_strlen((char *)s) + 1))))
-        return (NULL);
-    while (i < ft_strlen((char *)s))
-    {
-        str[i] = f(i, s[i]);
-        i++;
-    }
-    str[i] = '\0';
-    return (str);
+	i = 0;
+	if (!(str = malloc(sizeof(char) * (ft_strlen((char *)s) + 1))))
+		return (NULL);
+	while (i < ft_strlen((char *)s))
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
 
 /*
-#include <unistd.h>
 #include <string.h>
+#include <unistd.h>
 
-static void		ft_print_result(char const *s)
+static void	ft_print_result(char const *s)
 {
-	int		len;
+	int	len;
 
 	len = 0;
 	while (s[len])
@@ -32,9 +32,9 @@ static void		ft_print_result(char const *s)
 	write(1, s, len);
 }
 
-static char		mapi(unsigned int i, char c)
+static char	mapi(unsigned int i, char c)
 {
-	static int indexArray[11] = {0};
+	static int	indexArray[11] = {0};
 
 	if (i > 10 || indexArray[i] == 1)
 		write(1, "wrong index\n", 12);
@@ -48,7 +48,7 @@ static char		mapi(unsigned int i, char c)
 		return (c);
 }
 
-int				main(int argc, const char *argv[])
+int	main(int argc, const char *argv[])
 {
 	char	*str;
 	char	*strmapi;

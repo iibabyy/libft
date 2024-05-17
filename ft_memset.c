@@ -13,42 +13,42 @@
 #include "libft.h"
 #include <stddef.h>
 
-void    *ft_memset(void *array, int value, size_t hmany)
+void	*ft_memset(void *array, int value, size_t hmany)
 {
-    unsigned char   *tab;
+	unsigned char	*tab;
 
-    tab = array;
-    while (hmany--)
-        *tab++ = value;
-    return (array);
+	tab = array;
+	while (hmany--)
+		*tab++ = value;
+	return (array);
 }
 
 /*
 #include <stdio.h>
 #include <unistd.h>
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-    if (ac = 4)
-    {
-        int     i;
-        char    *s;
+		int     i;
+		char    *s;
 
-        i = 0;
-        printf ("%s\n", av[1]);
-        s = ft_memset(av[1], av[2][0], ft_atoi(av[3]));
-        while (s[i])
-            write (1, &s[i++], 1);
-    }
-    return (0);
+	if (ac = 4)
+	{
+		i = 0;
+		printf ("%s\n", av[1]);
+		s = ft_memset(av[1], av[2][0], ft_atoi(av[3]));
+		while (s[i])
+			write (1, &s[i++], 1);
+	}
+	return (0);
 }
 */
 
 /*
 #include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
+#include <unistd.h>
 
-static void		check_memset(void *mem, int c, int n, int mem_size)
+static void	check_memset(void *mem, int c, int n, int mem_size)
 {
 	if (mem != ft_memset(mem, c, n))
 		write(1, "mem's adress was not returned\n", 30);
@@ -56,7 +56,7 @@ static void		check_memset(void *mem, int c, int n, int mem_size)
 	free(mem);
 }
 
-int				main(int argc, const char *argv[])
+int	main(int argc, const char *argv[])
 {
 	void	*mem;
 	int		arg;

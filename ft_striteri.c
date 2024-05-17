@@ -1,23 +1,23 @@
-void ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-    int     i;
+	int	i;
 
-    i = 0;
-    while (s[i])
-    {
-        f(i, (s + i));
-        i++;
-    }
+	i = 0;
+	while (s[i])
+	{
+		f(i, (s + i));
+		i++;
+	}
 }
 
 /*
+#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <stdlib.h>
 
-static void		ft_print_result(char const *s)
+static void	ft_print_result(char const *s)
 {
-	int		len;
+	int	len;
 
 	len = 0;
 	while (s[len])
@@ -25,9 +25,9 @@ static void		ft_print_result(char const *s)
 	write(1, s, len);
 }
 
-static void		mapi(unsigned int i, char *c)
+static void	mapi(unsigned int i, char *c)
 {
-	static int indexArray[11] = {0};
+	static int	indexArray[11] = {0};
 
 	if (i > 10 || indexArray[i] == 1)
 		write(1, "wrong index\n", 12);
@@ -39,7 +39,7 @@ static void		mapi(unsigned int i, char *c)
 		*c += 32;
 }
 
-int				main(int argc, const char *argv[])
+int	main(int argc, const char *argv[])
 {
 	char	*str;
 
@@ -51,11 +51,11 @@ int				main(int argc, const char *argv[])
 	{
 		strcpy(str, "LoReM iPsUm");
 		ft_print_result(str);
-        ft_striteri(str, mapi);
+		ft_striteri(str, mapi);
 		if (str[11] != '\0')
 			ft_print_result("\nString is not null terminated");
-        write (1, "\n", 1);
-        ft_print_result(str);
+		write (1, "\n", 1);
+		ft_print_result(str);
 	}
 	free(str);
 	return (0);

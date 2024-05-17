@@ -1,24 +1,24 @@
-#include <unistd.h>
 #include "libft.h"
+#include <unistd.h>
 
-void ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
-    int     i;
+	int	i;
 
-    i = 0;
-    while (s[i])
-    {
-        ft_putchar_fd(s[i], fd);
-        i++;
-    }
+	i = 0;
+	while (s[i])
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
 }
 
 /*
 #include <stdlib.h>
 
-int		main(int argc, const char *argv[])
+int	main(int argc, const char *argv[])
 {
-	int		arg;
+	int	arg;
 
 	alarm(5);
 	if (argc == 1)

@@ -10,26 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 #include <stddef.h>
+#include <stdlib.h>
 
-void    *ft_calloc(size_t el_count, size_t el_size)
+void	*ft_calloc(size_t el_count, size_t el_size)
 {
-    unsigned char   *buffer;
+	unsigned char	*buffer;
 
-    if (!(buffer = malloc(el_size * el_count)))
-        return (NULL);
-    buffer = ft_memset(buffer, 0, (el_count * el_size));
-    return (buffer);
+	if (!(buffer = malloc(el_size * el_count)))
+		return (NULL);
+	buffer = ft_memset(buffer, 0, (el_count * el_size));
+	return (buffer);
 }
 
 /*
+#include "libft.h"
 #include <stdlib.h>
 #include <unistd.h>
-#include "libft.h"
 
-int		main(int argc, const char *argv[])
+int	main(int argc, const char *argv[])
 {
 	char	*str;
 

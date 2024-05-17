@@ -13,27 +13,27 @@
 #include "libft.h"
 #include <stddef.h>
 
-void    *ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-    int                 i;
-    unsigned const char *s;
+	int					i;
+	unsigned const char	*s;
 
-    i = 0;
-    s = src;
-    while (n--)
-    {
-        ft_memset((dest + i), *(s + i), 1);
-        i++;
-    }
-    return (dest);
+	i = 0;
+	s = src;
+	while (n--)
+	{
+		ft_memset((dest + i), *(s + i), 1);
+		i++;
+	}
+	return (dest);
 }
 
 /*
 #include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
+#include <unistd.h>
 
-static void		check_memcpy(void *dest, void *src, int n)
+static void	check_memcpy(void *dest, void *src, int n)
 {
 	if (dest != ft_memcpy(dest, src, n))
 		write(1, "dest's adress was not returned\n", 31);
@@ -41,7 +41,7 @@ static void		check_memcpy(void *dest, void *src, int n)
 	free(dest);
 }
 
-int				main(int argc, const char *argv[])
+int	main(int argc, const char *argv[])
 {
 	void	*mem;
 	int		arg;

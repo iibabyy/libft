@@ -1,18 +1,18 @@
-#include <unistd.h>
 #include "libft.h"
+#include <unistd.h>
 
-void ft_putendl_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
-    ft_putstr_fd(s, fd);
-    write (fd, "\n", 1);
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
 }
 
 /*
 #include <stdlib.h>
 
-int		main(int argc, const char *argv[])
+int	main(int argc, const char *argv[])
 {
-	int		arg;
+	int	arg;
 
 	alarm(5);
 	if (argc == 1)

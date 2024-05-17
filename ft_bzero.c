@@ -13,24 +13,24 @@
 #include "libft.h"
 #include <stddef.h>
 
-void    ft_bzero(void *array, size_t lim)
+void	ft_bzero(void *array, size_t lim)
 {
-    ft_memset(array, 0, lim);
+	ft_memset(array, 0, lim);
 }
 
 /*
 #include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
+#include <unistd.h>
 
-static void		check_bzero(void *mem, int c, int len, int n_bzero)
+static void	check_bzero(void *mem, int c, int len, int n_bzero)
 {
 	memset(mem, c, len);
 	ft_bzero(mem, n_bzero);
 	write(1, mem, len);
 }
 
-int				main(int argc, const char *argv[])
+int	main(int argc, const char *argv[])
 {
 	void	*mem;
 	int		len;

@@ -10,30 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
-char    *ft_strjoin(const char *s1, const char *s2)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-    int     len;
-    char    *str;
+	int		len;
+	char	*str;
 
-    len = ft_strlen((char *)s1) + ft_strlen((char *)s2);
-    if (!(str = malloc(sizeof(char) * len)))
-        return (NULL);
-    ft_memmove(str, s1, ft_strlen((char *)s1));
-    ft_memmove(str + ft_strlen((char *)s1), s2, ft_strlen((char *)s2));
-    return (str);
+	len = ft_strlen((char *)s1) + ft_strlen((char *)s2);
+	if (!(str = malloc(sizeof(char) * len)))
+		return (NULL);
+	ft_memmove(str, s1, ft_strlen((char *)s1));
+	ft_memmove(str + ft_strlen((char *)s1), s2, ft_strlen((char *)s2));
+	return (str);
 }
-
-
 
 /*
 #include <unistd.h>
 
-static void			ft_print_result(char const *s)
+static void	ft_print_result(char const *s)
 {
-	int		len;
+	int	len;
 
 	len = 0;
 	while (s[len])
@@ -41,7 +39,7 @@ static void			ft_print_result(char const *s)
 	write(1, s, len);
 }
 
-static void			check_strjoin(char *s1, char *s2)
+static void	check_strjoin(char *s1, char *s2)
 {
 	char	*strjoin;
 
@@ -55,7 +53,7 @@ static void			check_strjoin(char *s1, char *s2)
 		free(strjoin);
 }
 
-int					main(int argc, const char *argv[])
+int	main(int argc, const char *argv[])
 {
 	char	s1[] = "lorem ipsum";
 	char	s2[] = "dolor sit amet";

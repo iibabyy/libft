@@ -14,38 +14,39 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t n)
 {
-    int     i;
-    int     j;
-    char    *retval;
+	int		i;
+	int		j;
+	char	*retval;
 
-    i = 0;
-    j = 0;
-    if (ft_strlen((char *)little) == 0 || !little)
-        return ((char *)big);
-    while (big[i] && i < (int)n)
-    {
-        if (big[i] == little[j])
-        {
-            while (big[i + j] == little[j] && big[i + j] && little[j] && i + j < (int)n)
-            { 
-                if (j + 1 == (int)ft_strlen((char *)little))
-                    return (retval = (char *)&big[i], retval);
-                j++;
-            }
-            j = 0;
-        }
-        i++;
-    }
-    return (retval = 0);
+	i = 0;
+	j = 0;
+	if (ft_strlen((char *)little) == 0 || !little)
+		return ((char *)big);
+	while (big[i] && i < (int)n)
+	{
+		if (big[i] == little[j])
+		{
+			while (big[i + j] == little[j] && big[i + j] && little[j] && i
+				+ j < (int)n)
+			{
+				if (j + 1 == (int)ft_strlen((char *)little))
+					return (retval = (char *)&big[i], retval);
+				j++;
+			}
+			j = 0;
+		}
+		i++;
+	}
+	return (retval = 0);
 }
 
 /*
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-static void		ft_print_result(char const *s)
+static void	ft_print_result(char const *s)
 {
-	int		len;
+	int	len;
 
 	len = 0;
 	while (s[len])
@@ -53,9 +54,9 @@ static void		ft_print_result(char const *s)
 	write(1, s, len);
 }
 
-static void		check_strnstr(char *big, char *little, int len)
+static void	check_strnstr(char *big, char *little, int len)
 {
-	const char *str;
+	const char	*str;
 
 	if (!(str = ft_strnstr(big, little, len)))
 		ft_print_result("NULL");
@@ -63,9 +64,9 @@ static void		check_strnstr(char *big, char *little, int len)
 		ft_print_result(str);
 }
 
-int				main(int argc, const char *argv[])
+int	main(int argc, const char *argv[])
 {
-	int			arg;
+	int	arg;
 
 	alarm(5);
 	if (argc == 1)

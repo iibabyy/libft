@@ -1,18 +1,18 @@
 #include <unistd.h>
 
-void ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
-    write (fd, &c, 1);
+	write(fd, &c, 1);
 }
 
 /*
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
-int		main(int argc, const char *argv[])
+int	main(int argc, const char *argv[])
 {
-	int		i;
-	int		arg;
+	int	i;
+	int	arg;
 
 	alarm(5);
 	if (argc == 1)

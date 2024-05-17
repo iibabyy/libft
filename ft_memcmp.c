@@ -12,30 +12,29 @@
 
 #include <stddef.h>
 
-int     ft_memcmp(const void *str1, const void *str2, size_t n)
+int	ft_memcmp(const void *str1, const void *str2, size_t n)
 {
-    int     i;
-    unsigned const char *s1;
-    unsigned const char *s2;
+	int					i;
+	unsigned const char	*s1;
+	unsigned const char	*s2;
 
-    i = 0;
-    s1 = str1;
-    s2 = str2;
-    while (*(s1 + i) == *(s2 + i) && i < (int)n)
-        i++;
-    if (i >= (int)n)
-        return (0);
-    return (*(s1 + i) - *(s2 + i));  
+	i = 0;
+	s1 = str1;
+	s2 = str2;
+	while (*(s1 + i) == *(s2 + i) && i < (int)n)
+		i++;
+	if (i >= (int)n)
+		return (0);
+	return (*(s1 + i) - *(s2 + i));
 }
 
-
 /*
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
 #include "libft.h"
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
-static void		ft_print_result(int n)
+static void	ft_print_result(int n)
 {
 	if (n > 0)
 		write(1, "1", 1);
@@ -45,9 +44,9 @@ static void		ft_print_result(int n)
 		write(1, "0", 1);
 }
 
-int				main(int argc, const char *argv[])
+int	main(int argc, const char *argv[])
 {
-	int		arg;
+	int	arg;
 
 	alarm(5);
 	if (argc == 1)

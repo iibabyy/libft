@@ -12,19 +12,19 @@
 
 #include <stddef.h>
 
-size_t ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-    int     i;
-    int     j;
+	int i;
+	int j;
 
-    i = 0;
-    j = 0;
-    while (dst[i] != '\0' && i <= (int)size)
-        i++;
-    while (src[j])
-    {
-        dst[i++] = src[j++];
-    }
-    dst[i] = '\0';
-    return (i);
+	i = 0;
+	j = 0;
+	while (dst[i] != '\0' && i <= (int)size)
+		i++;
+	while (src[j])
+	{
+		dst[i++] = src[j++];
+	}
+	dst[i] = '\0';
+	return (i);
 }

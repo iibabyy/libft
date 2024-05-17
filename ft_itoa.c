@@ -10,88 +10,89 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
-static int  numlen(int num)
+static int	numlen(int num)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (num)
-    {
-        num /= 10;
-        i++;
-    }
-    return (i);
+	i = 0;
+	while (num)
+	{
+		num /= 10;
+		i++;
+	}
+	return (i);
 }
 
-static void reversetab(char *str)
+static void	reversetab(char *str)
 {
-    int     i;
-    int     j;
-    char    temp;
+	int		i;
+	int		j;
+	char	temp;
 
-    i = 0;
-    j = ft_strlen(str) - 1;
-    while (i < j)
-    {
-        temp = str[i];
-        str[i++] = str[j];
-        str[j--] = temp;
-    }
+	i = 0;
+	j = ft_strlen(str) - 1;
+	while (i < j)
+	{
+		temp = str[i];
+		str[i++] = str[j];
+		str[j--] = temp;
+	}
 }
 
-char    *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-    int     i;
-    int     signe;
-    long    c;
-    char    *str;
+	int		i;
+	int		signe;
+	long	c;
+	char	*str;
 
-    signe = (n >= 0)? 1 : -1;
-    i = (signe == 1 && n != 0)? 0 : 1;
-    c = (signe == 1)? (long)n : -(long)n;
-    if (!(str = malloc(sizeof(char) * (numlen(c) + 5))))
-        return (0);
-    str[0] = (c == 0)? '0' : '1';
-    while (c)
-    {
-        str[i++] = c % 10 + '0';
-        c /= 10;
-    }
-    str[i] = '\0';
-    if (signe >= 0)
-        reversetab(str);
-    else
-    {
-        reversetab(str + 1);
-        str[0] = '-';
-    }
-    return (str);
+	signe = (n >= 0) ? 1 : -1;
+	i = (signe == 1 && n != 0) ? 0 : 1;
+	c = (signe == 1) ? (long)n : -(long)n;
+	if (!(str = malloc(sizeof(char) * (numlen(c) + 5))))
+		return (0);
+	str[0] = (c == 0) ? '0' : '1';
+	while (c)
+	{
+		str[i++] = c % 10 + '0';
+		c /= 10;
+	}
+	str[i] = '\0';
+	if (signe >= 0)
+		reversetab(str);
+	else
+	{
+		reversetab(str + 1);
+		str[0] = '-';
+	}
+	return (str);
 }
 
 /*
 #include <stdio.h>
 int main (int ac, char **av)
 {
-    if (ac == 2)
-    {
-        printf("il y a %d chiffres dans %d\n", numlen(ft_atoi(av[1])), ft_atoi(av[1]));
-        printf("l'entier rentre en parametes est %s\n", ft_itoa(atoi(av[1])));
-    }
-    return 0;
+	if (ac == 2)
+	{
+		printf("il y a %d chiffres dans %d\n", numlen(ft_atoi(av[1])),
+			ft_atoi(av[1]));
+		printf("l'entier rentre en parametes est %s\n", ft_itoa(atoi(av[1])));
+	}
+	return (0);
 }
 */
 
 /*
+#include "libft.h"
 #include <stdlib.h>
 #include <unistd.h>
-#include "libft.h"
 
-static void		ft_print_result(char *s)
+static void	ft_print_result(char *s)
 {
-	int		len;
+	int	len;
 
 	if (!s)
 		write(1, "NULL", 4);
@@ -105,9 +106,9 @@ static void		ft_print_result(char *s)
 	}
 }
 
-int				main(int argc, const char *argv[])
+int	main(int argc, const char *argv[])
 {
-	int		arg;
+	int	arg;
 
 	alarm(5);
 	if (argc == 1)

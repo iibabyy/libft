@@ -1,34 +1,34 @@
-#include <unistd.h>
 #include "libft.h"
+#include <unistd.h>
 
-void ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-    long    c;
+	long	c;
 
-    c = (long)n;
-    if (c < 0)
-    {
-        ft_putchar_fd('-', fd);
-        c = -c;
-    }
-    if (c >= 10)
-    {
-        ft_putnbr_fd((c / 10), fd);
-        ft_putnbr_fd((c % 10), fd);
-    }
-    else if (c <= 9)
-    {
-        ft_putchar_fd((c + 48), fd);
-    }
+	c = (long)n;
+	if (c < 0)
+	{
+		ft_putchar_fd('-', fd);
+		c = -c;
+	}
+	if (c >= 10)
+	{
+		ft_putnbr_fd((c / 10), fd);
+		ft_putnbr_fd((c % 10), fd);
+	}
+	else if (c <= 9)
+	{
+		ft_putchar_fd((c + 48), fd);
+	}
 }
 
 /*#include <stdlib.h>
 
-int     main(int ac, char **av)
+int	main(int ac, char **av)
 {
-    if (ac == 2)
-        ft_putnbr_fd(atoi(av[1]), 1);
-    return (0);
+	if (ac == 2)
+		ft_putnbr_fd(atoi(av[1]), 1);
+	return (0);
 }
 */
 

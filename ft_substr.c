@@ -1,47 +1,47 @@
+#include "libft.h"
 #include <stddef.h>
 #include <stdlib.h>
-#include "libft.h"
 
 /*
-char    *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-    int     i;
-    int     size;
-    const char    *str;
+	int			i;
+	int			size;
+	const char	*str;
 
-    i = 0;
-    if (len >= ft_strlen(s + start))
-        str = malloc(sizeof(char) * ft_strlen(s + start));
-    else
-        str = malloc(sizeof(char) * len);
-    while (s[start + i] && i < len)
-    {
-        str[i] = s[start + i];
-        i++;
-    }
-    str[i] = '\0';
+	i = 0;
+	if (len >= ft_strlen(s + start))
+		str = malloc(sizeof(char) * ft_strlen(s + start));
+	else
+		str = malloc(sizeof(char) * len);
+	while (s[start + i] && i < len)
+	{
+		str[i] = s[start + i];
+		i++;
+	}
+	str[i] = '\0';
 }
 */
 
-char    *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-    char    *str;
+	char	*str;
 
-    if (!(str = malloc(sizeof(char) * len)))
+	if (!(str = malloc(sizeof(char) * len)))
 		return (NULL);
-    if (len >= ft_strlen((char *)(s + start)))
-        ft_memmove(str, (s + start), ft_strlen((char *)(s + start)));
-    else
-        ft_memmove(str, (s + start), len);
-    return (str);
+	if (len >= ft_strlen((char *)(s + start)))
+		ft_memmove(str, (s + start), ft_strlen((char *)(s + start)));
+	else
+		ft_memmove(str, (s + start), len);
+	return (str);
 }
 
 /*
 #include <unistd.h>
 
-static void		ft_print_result(char const *s)
+static void	ft_print_result(char const *s)
 {
-	int		len;
+	int	len;
 
 	len = 0;
 	while (s[len])
@@ -49,7 +49,7 @@ static void		ft_print_result(char const *s)
 	write(1, s, len);
 }
 
-static void		check_substr(char *str, int start, int len)
+static void	check_substr(char *str, int start, int len)
 {
 	char	*substr;
 
@@ -63,7 +63,7 @@ static void		check_substr(char *str, int start, int len)
 		free(substr);
 }
 
-int				main(int argc, const char *argv[])
+int	main(int argc, const char *argv[])
 {
 	char	str[] = "lorem ipsum dolor sit amet";
 	int		arg;

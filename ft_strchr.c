@@ -10,28 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char    *ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *str, int c)
 {
-    int     i;
-    char    *retval;
+	int		i;
+	char	*retval;
 
-    i = 0;
-    while (str[i] && str[i] != c)
-        i++;
-    if (str[i] == '\0')
-        return (retval = 0);
-    retval = (char *)str + i;
-    return (retval);
+	i = 0;
+	while (str[i] && str[i] != c)
+		i++;
+	if (str[i] == '\0')
+		return (retval = 0);
+	retval = (char *)str + i;
+	return (retval);
 }
 
 /*
 #include <stdio.h>
-int main(int ac, char **av)
+
+int	main(int ac, char **av)
 {
-    if (ac == 2)
-    {
-        printf ("%s\n%s\n", av[1], ft_strchr(av[1], 'r'));
-    }
-    return (0);
+	if (ac == 2)
+	{
+		printf ("%s\n%s\n", av[1], ft_strchr(av[1], 'r'));
+	}
+	return (0);
 }
 */

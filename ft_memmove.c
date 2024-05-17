@@ -13,13 +13,13 @@
 #include "libft.h"
 #include <stddef.h>
 
-void    *ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-    unsigned char   s[n];
+	unsigned char	s[n];
 
-    ft_memcpy(s, src, n);
-    ft_memcpy(dest, s, n);
-    return (dest);
+	ft_memcpy(s, src, n);
+	ft_memcpy(dest, s, n);
+	return (dest);
 }
 
 /*
@@ -27,51 +27,51 @@ void    *ft_memmove(void *dest, const void *src, size_t n)
 #include <stdlib.h>
 #include <string.h>
 
-int main() {
+int	main(void) {
 
-    // On crée une zone de mémoire de 10 entiers et contenant
-    // que neuf valeurs. La dixième est non utilisée (0).
-    int data[] = { 20, 30, 40, 50, 60, 70, 80, 90, 100, 0 };
+	// On crée une zone de mémoire de 10 entiers et contenant
+	// que neuf valeurs. La dixième est non utilisée (0).
+	int data[] = { 20, 30, 40, 50, 60, 70, 80, 90, 100, 0 };
 
-    // On affiche le contenu de la collection
-    for( int i=0; i<10; i++ ) {
-        printf( "%d ", data[i] );
-    }
-    puts( "" );  // Un retour à la ligne
+	// On affiche le contenu de la collection
+	for( int i=0; i<10; i++ ) {
+		printf( "%d ", data[i] );
+	}
+	puts( "" );  // Un retour à la ligne
 
-    // On décale les éléménts dans la collection ...
-    void * source = (void *) data;
-    void * destination = (void *) ( data + 1 );
-    size_t size = 10 * sizeof( int );
-    ft_memmove( destination, source, size );
+	// On décale les éléménts dans la collection ...
+	void * source = (void *) data;
+	void * destination = (void *) ( data + 1 );
+	size_t size = 10 * sizeof( int );
+	ft_memmove( destination, source, size );
 
-    // ... pour y insérer une nouvelle valeur en tête
-    data[0] = 10;
+	// ... pour y insérer une nouvelle valeur en tête
+	data[0] = 10;
 
-    // On affiche le contenu de la collection
-    for( int i=0; i<10; i++ ) {
-        printf( "%d ", data[i] );
-    }
-    puts( "" );  // Un retour à la ligne
+	// On affiche le contenu de la collection
+	for( int i=0; i<10; i++ ) {
+		printf( "%d ", data[i] );
+	}
+	puts( "" );  // Un retour à la ligne
 
-    return 0;
+	return (0);
 }
 */
 
 /*
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
 #include "libft.h"
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
-static void		check_memmove(void *dest, void *src, int n)
+static void	check_memmove(void *dest, void *src, int n)
 {
 	if (dest != ft_memmove(dest, src, n))
 		write(1, "dest's adress was not returned\n", 31);
 	write(1, dest, 22);
 }
 
-int				main(int argc, const char *argv[])
+int	main(int argc, const char *argv[])
 {
 	char	src[] = "lorem ipsum dolor sit amet";
 	char	*dest;
