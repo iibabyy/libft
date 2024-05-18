@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:34:20 by ibaby             #+#    #+#             */
-/*   Updated: 2024/03/31 22:34:20 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/05/18 01:56:14 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	char	*str;
 
 	len = ft_strlen((char *)s1) + ft_strlen((char *)s2);
-	if (!(str = malloc(sizeof(char) * len)))
+	if (!(str = malloc(sizeof(char) * (len + 1))))
 		return (NULL);
-	ft_memmove(str, s1, ft_strlen((char *)s1));
-	ft_memmove(str + ft_strlen((char *)s1), s2, ft_strlen((char *)s2));
+	ft_memcpy(str, s1, ft_strlen((char *)s1));
+	ft_memcpy(str + ft_strlen((char *)s1) + 1, s2, ft_strlen((char *)s2));
 	return (str);
 }
 
@@ -55,10 +55,12 @@ static void	check_strjoin(char *s1, char *s2)
 
 int	main(int argc, const char *argv[])
 {
-	char	s1[] = "lorem ipsum";
-	char	s2[] = "dolor sit amet";
+	char	s1[];
+	char	s2[];
 	int		arg;
 
+	s1[] = "lorem ipsum";
+	s2[] = "dolor sit amet";
 	alarm(5);
 	if (argc == 1)
 		return (0);

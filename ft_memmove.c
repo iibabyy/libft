@@ -73,10 +73,11 @@ static void	check_memmove(void *dest, void *src, int n)
 
 int	main(int argc, const char *argv[])
 {
-	char	src[] = "lorem ipsum dolor sit amet";
+	char	src[];
 	char	*dest;
 	int		arg;
 
+	src[] = "lorem ipsum dolor sit amet";
 	dest = src + 1;
 	alarm(5);
 	if (argc == 1)

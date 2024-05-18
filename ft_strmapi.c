@@ -34,8 +34,9 @@ static void	ft_print_result(char const *s)
 
 static char	mapi(unsigned int i, char c)
 {
-	static int	indexArray[11] = {0};
+	static int	indexArray[11];
 
+	indexArray[11] = {0};
 	if (i > 10 || indexArray[i] == 1)
 		write(1, "wrong index\n", 12);
 	else

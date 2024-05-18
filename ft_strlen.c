@@ -6,13 +6,13 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:34:26 by ibaby             #+#    #+#             */
-/*   Updated: 2024/03/31 22:34:26 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/05/18 01:10:56 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	int i;
 

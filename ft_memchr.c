@@ -59,8 +59,9 @@ static void	check_memchr(void *s, char c, int n)
 int	main(int argc, const char *argv[])
 {
 	int	arg;
-		int tab[7] = {-49, 49, 1, -1, 0, -2, 2};
+	int	tab[7];
 
+		tab[7] = {-49, 49, 1, -1, 0, -2, 2};
 	alarm(5);
 	if (argc == 1)
 		return (0);

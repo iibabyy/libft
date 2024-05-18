@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:33:17 by ibaby             #+#    #+#             */
-/*   Updated: 2024/03/31 22:33:17 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/05/18 01:58:26 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 
 	i = 0;
 	start = 0;
-	end = (ft_strlen((char *)s1) > 0) ? ft_strlen((char *)s1)
-		- 1 : ft_strlen((char *)s1);
+	end = (ft_strlen((char *)s1) > 0) ? ft_strlen((char *)s1) - 1 : ft_strlen((char *)s1);
 	while (ft_strchr(set, s1[start]) && i++ < (int)ft_strlen((char *)s1))
 		start++;
 	i = 0;
@@ -64,13 +63,18 @@ static void	check_strtrim(char *s1, char *set)
 
 int	main(int argc, const char *argv[])
 {
-	int	arg;
-		char s1[] = "lorem \n ipsum \t dolor \n sit \t amet";
-		char s1[] = "lorem ipsum dolor sit amet \n \t ";
-		char s1[] = " \n \t lorem ipsum dolor sit amet";
-		char s1[] = "  \n  \t  lorem \n ipsum \t dolor \n sit \t amet  \t \n ";
-		char s1[] = "          ";
+	int		arg;
+	char	s1[];
+	char	s1[];
+	char	s1[];
+	char	s1[];
+	char	s1[];
 
+		s1[] = "lorem \n ipsum \t dolor \n sit \t amet";
+		s1[] = "lorem ipsum dolor sit amet \n \t ";
+		s1[] = " \n \t lorem ipsum dolor sit amet";
+		s1[] = "  \n  \t  lorem \n ipsum \t dolor \n sit \t amet  \t \n ";
+		s1[] = "          ";
 	char	set [] = "\t \n";
 	alarm(5);
 	if (argc == 1)

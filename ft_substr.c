@@ -65,9 +65,10 @@ static void	check_substr(char *str, int start, int len)
 
 int	main(int argc, const char *argv[])
 {
-	char	str[] = "lorem ipsum dolor sit amet";
+	char	str[];
 	int		arg;
 
+	str[] = "lorem ipsum dolor sit amet";
 	alarm(5);
 	if (argc == 1)
 		return (0);

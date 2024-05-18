@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:34:18 by ibaby             #+#    #+#             */
-/*   Updated: 2024/03/31 22:34:18 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/05/18 01:30:53 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ char	*ft_strdup(const char *src)
 	char	*str;
 	int		size;
 
-	size = ft_strlen((char *)src);
-	str = ft_calloc(size, sizeof(char));
+	size = ft_strlen((char *)src) + 1;
+	str = malloc(sizeof(char) * size);
 	if (!str)
 		return (str = 0);
 	str = ft_memmove(str, src, size);
@@ -72,9 +72,10 @@ static void	ft_print_result(char const *s)
 
 int	main(int argc, const char *argv[])
 {
-	char	str[] = "lorem ipsum dolor sit amet";
+	char	str[];
 	char	*str_dup;
 
+	str[] = "lorem ipsum dolor sit amet";
 	alarm(5);
 	if (argc == 1)
 		return (0);
