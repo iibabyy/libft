@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:33:55 by ibaby             #+#    #+#             */
-/*   Updated: 2024/05/19 18:53:31 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/05/19 18:57:25 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*ft_itoa(int n)
 	signe = (n >= 0) ? 1 : -1;
 	i = (signe == 1 && n != 0) ? 0 : 1;
 	c = (signe == 1) ? (long)n : -(long)n;
-	if (!(str = malloc(sizeof(char) * (numlen(c)))))
+	if (!(str = malloc(sizeof(char) * (numlen(c) + 5))))
 		return (0);
 	str[0] = (c == 0) ? '0' : '1';
 	while (c)
