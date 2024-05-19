@@ -6,11 +6,11 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:33:22 by ibaby             #+#    #+#             */
-/*   Updated: 2024/03/31 22:33:22 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/05/19 18:48:04 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	sign;

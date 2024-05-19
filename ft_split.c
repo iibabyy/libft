@@ -25,19 +25,45 @@ static int	count_words(const char *s, char c)
 	return (count);
 }
 
+char	*ft_strtrim2(char const *s1, char sep)
+{
+	char	*str;
+	size_t	end;
+	size_t	start;
+
+	if (!s1)
+		return (0);
+	end = ft_strlen(s1);
+	start = 0;
+	while (s1[start] && s1[start] == sep)
+		start++;
+	while (end > start && s1[end] == sep)
+		end--;
+	str = ft_substr(s1, start, (end - start + 1));
+	//str = malloc(sizeof(char) * (end - start + 2));
+	//*str = 0;
+	//ft_strncpy(str, (s1 + start), (end - start + 1));
+	return (str);
+}
+
 char	**ft_split(const char *s, char sep)
 {
 	int		start;
 	int		i;
 	int		j;
+	int		words;
 	char	**split;
 
 	i = 0;
 	j = 0;
+	words = (s[ft_strlen(s) - 1] == sep) ? count_words(s, sep)
+		- 1 : count_words(s, sep);
+	if (words < 0 || *s == '\0')
+		return (split = malloc(sizeof(char *) * 1), split[0] = NULL, split);
+	split = malloc(sizeof(char *) * (words + 1));
 	while (s[i] == sep)
 		i++;
-	split = malloc(sizeof(char *) * (count_words(s, sep) + 1));
-	while (j < count_words(s, sep))
+	while (j < words)
 	{
 		start = i;
 		while (s[i] != sep && s[i])
@@ -49,8 +75,20 @@ char	**ft_split(const char *s, char sep)
 			i++;
 		j++;
 	}
-	return (split[count_words(s, sep)] = NULL, split);
+	return (split[words] = NULL, split);
 }
+/*int main()
+{
+	char	**split;
+	int		i;
+
+	split = ft_split("ggggggggggg", 'g');
+	i = 0;
+	while (split[i])
+		ft_putstr_fd(split[i], 1);
+	return (0);
+}
+*/
 
 /*
 #include <stdio.h>

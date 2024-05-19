@@ -6,31 +6,28 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:33:17 by ibaby             #+#    #+#             */
-/*   Updated: 2024/05/18 01:58:26 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/05/19 18:52:25 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char	*ft_strtrim(const char *s1, const char *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		start;
-	int		end;
-	int		i;
 	char	*str;
+	size_t	end;
+	size_t	start;
 
-	i = 0;
-	start = 0;
-	end = (ft_strlen((char *)s1) > 0) ? ft_strlen((char *)s1) - 1 : ft_strlen((char *)s1);
-	while (ft_strchr(set, s1[start]) && i++ < (int)ft_strlen((char *)s1))
-		start++;
-	i = 0;
-	while (ft_strchr(set, s1[end]) && i++ < (int)ft_strlen((char *)s1))
-		end--;
-	if (!(str = malloc(sizeof(char) * (end - start + 1))))
+	if (!s1 || !set)
 		return (0);
-	str = ft_memmove(str, (s1 + start), (end - start + 1));
+	end = ft_strlen(s1);
+	start = 0;
+	while (s1[start] && ft_strchr(set, s1[start]))
+		start++;
+	while (end && ft_strchr(set, s1[end]))
+		end--;
+	str = ft_substr(s1, start, (end - start + 1));
 	return (str);
 }
 

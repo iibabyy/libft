@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:35:02 by ibaby             #+#    #+#             */
-/*   Updated: 2024/05/18 01:10:42 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/05/19 18:48:13 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stddef.h>
 
-int					ft_atoi(char *str);
+int					ft_atoi(const char *str);
 int					ft_isacii(char c);
 int					ft_isalnum(char c);
 int					ft_isalpha(char c);
@@ -29,7 +29,7 @@ int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strnstr(const char *big, const char *little, size_t n);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strchr(const char *str, int c);
-void				ft_tolower(int c);
+int					ft_tolower(int c);
 int					ft_toupper(int c);
 void				*ft_memset(void *array, int value, size_t hmany);
 void				ft_bzero(void *array, size_t lim);

@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:34:44 by ibaby             #+#    #+#             */
-/*   Updated: 2024/05/18 01:23:43 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/05/19 13:54:01 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,18 @@ char	*ft_strrchr(const char *str, int c)
 	retval = (char *)str + i;
 	while (str[i])
 	{
-		if (str[i] == c)
+		if (str[i] == (unsigned char)c)
 		{
 			retval = (char *)str + i;
 		}
 		i++;
 	}
-	if (c == '\0')
+	if ((unsigned char)c == '\0')
 	{
 		retval = (char *)str + i;
 		return (retval);
 	}
-	if (*retval != c)
+	if (*retval != (unsigned char)c)
 		return (retval = 0);
 	return (retval);
 }

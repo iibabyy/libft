@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:34:03 by ibaby             #+#    #+#             */
-/*   Updated: 2024/03/31 22:34:03 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/05/18 19:47:59 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memchr(const void *str, int tofind, size_t n)
 	s = str;
 	while (n--)
 	{
-		if ((int)*s == tofind)
+		if (*(unsigned char *)s == (unsigned char)tofind)
 		{
 			return ((unsigned char *)s);
 		}

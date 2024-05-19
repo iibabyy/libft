@@ -26,18 +26,25 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
+	size_t	i;
+	size_t	j;
+	size_t	size;
 
-	if (!(str = malloc(sizeof(char) * len)))
-		return (NULL);
-	if (len >= ft_strlen((char *)(s + start)))
-		ft_memmove(str, (s + start), ft_strlen((char *)(s + start)));
+	if (len > ft_strlen(s))
+		size = ft_strlen(s);
 	else
-		ft_memmove(str, (s + start), len);
+		size = len;
+	if (!s || !(str = malloc(sizeof(char) * size + 1)))
+		return (NULL);
+	i = start;
+	j = 0;
+	while (i < ft_strlen(s) && j < size)
+		str[j++] = s[i++];
+	str[j] = '\0';
 	return (str);
 }
 
-/*
-#include <unistd.h>
+/*#include <unistd.h>
 
 static void	ft_print_result(char const *s)
 {
@@ -65,10 +72,10 @@ static void	check_substr(char *str, int start, int len)
 
 int	main(int argc, const char *argv[])
 {
-	char	str[];
+	char	*str;
 	int		arg;
 
-	str[] = "lorem ipsum dolor sit amet";
+	str = "lorem ipsum dolor sit amet";
 	alarm(5);
 	if (argc == 1)
 		return (0);
