@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:33:55 by ibaby             #+#    #+#             */
-/*   Updated: 2024/05/19 18:57:25 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/05/19 20:58:17 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,32 +42,48 @@ static void	reversetab(char *str)
 	}
 }
 
-char	*ft_itoa(int n)
+void	reverse(char *str, int sign, int n)
 {
-	int		i;
-	int		signe;
-	long	c;
-	char	*str;
-
-	signe = (n >= 0) ? 1 : -1;
-	i = (signe == 1 && n != 0) ? 0 : 1;
-	c = (signe == 1) ? (long)n : -(long)n;
-	if (!(str = malloc(sizeof(char) * (numlen(c) + 5))))
-		return (0);
-	str[0] = (c == 0) ? '0' : '1';
-	while (c)
+	if (n == 0)
 	{
-		str[i++] = c % 10 + '0';
-		c /= 10;
+		str[0] = '0';
+		str[1] = '\0';
 	}
-	str[i] = '\0';
-	if (signe >= 0)
+	else if (sign >= 0)
 		reversetab(str);
 	else
 	{
 		reversetab(str + 1);
 		str[0] = '-';
 	}
+}
+
+char	*ft_itoa(int n)
+{
+	int		i;
+	int		sign;
+	long	c;
+	char	*str;
+
+	sign = 1;
+	i = 0;
+	c = (long)n;
+	if (n < 0)
+	{
+		sign = -sign;
+		c = -c;
+		i = 1;
+	}
+	str = malloc(sizeof(char) * (numlen(c) + 5));
+	if (!str)
+		return (0);
+	while (c)
+	{
+		str[i++] = c % 10 + '0';
+		c /= 10;
+	}
+	str[i] = '\0';
+	reverse(str, sign, n);
 	return (str);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:34:12 by ibaby             #+#    #+#             */
-/*   Updated: 2024/03/31 22:34:12 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/05/19 20:16:52 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char	s[n];
+	unsigned char	s[8192];
 
 	ft_memcpy(s, src, n);
 	ft_memcpy(dest, s, n);

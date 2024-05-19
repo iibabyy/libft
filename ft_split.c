@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/19 20:14:21 by ibaby             #+#    #+#             */
+/*   Updated: 2024/05/19 21:37:09 by ibaby            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include <stdlib.h>
 
@@ -40,27 +52,17 @@ char	*ft_strtrim2(char const *s1, char sep)
 	while (end > start && s1[end] == sep)
 		end--;
 	str = ft_substr(s1, start, (end - start + 1));
-	//str = malloc(sizeof(char) * (end - start + 2));
-	//*str = 0;
-	//ft_strncpy(str, (s1 + start), (end - start + 1));
 	return (str);
 }
 
-char	**ft_split(const char *s, char sep)
+void	ft_split_2(const char *s, char **split, char sep, int words)
 {
-	int		start;
-	int		i;
-	int		j;
-	int		words;
-	char	**split;
+	int	i;
+	int	j;
+	int	start;
 
 	i = 0;
 	j = 0;
-	words = (s[ft_strlen(s) - 1] == sep) ? count_words(s, sep)
-		- 1 : count_words(s, sep);
-	if (words < 0 || *s == '\0')
-		return (split = malloc(sizeof(char *) * 1), split[0] = NULL, split);
-	split = malloc(sizeof(char *) * (words + 1));
 	while (s[i] == sep)
 		i++;
 	while (j < words)
@@ -75,8 +77,23 @@ char	**ft_split(const char *s, char sep)
 			i++;
 		j++;
 	}
+}
+
+char	**ft_split(const char *s, char sep)
+{
+	int		words;
+	char	**split;
+
+	words = count_words(s, sep);
+	if (s[ft_strlen(s) - 1] == sep)
+		words--;
+	if (words < 0 || *s == '\0')
+		return (split = malloc(sizeof(char *) * 1), split[0] = NULL, split);
+	split = malloc(sizeof(char *) * (words + 1));
+	ft_split_2(s, split, sep, words);
 	return (split[words] = NULL, split);
 }
+
 /*int main()
 {
 	char	**split;
@@ -149,14 +166,14 @@ int	main(int argc, const char *argv[])
 	}
 	else if (arg == 4)
 		check_split("lorem ipsum dolor sit amet,
-			consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor,
-			dignissim sit amet, adipiscing nec, ultricies sed,
+			consectetur adipiscing elit. Sed non risus. Suspendisse lectus
+			tortor, dignissim sit amet, adipiscing nec, ultricies sed,
 			dolor. Cras elementum ultricies diam. Maecenas ligula massa,
 			varius a, semper congue, euismod non, mi.", 'i');
 	else if (arg == 5)
 		check_split("lorem ipsum dolor sit amet,
-			consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor,
-			dignissim sit amet, adipiscing nec, ultricies sed,
+			consectetur adipiscing elit. Sed non risus. Suspendisse lectus
+			tortor, dignissim sit amet, adipiscing nec, ultricies sed,
 			dolor. Cras elementum ultricies diam. Maecenas ligula massa,
 			varius a, semper congue, euismod non, mi.", 'z');
 	return (0);

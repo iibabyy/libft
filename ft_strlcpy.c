@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:34:24 by ibaby             #+#    #+#             */
-/*   Updated: 2024/05/19 19:34:11 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/05/19 20:12:54 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dst_size)
 {
-	size_t i;
-	size_t retval;
+	size_t	i;
+	size_t	retval;
 
 	i = 0;
 	if (!dst || !src)

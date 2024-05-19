@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/19 20:18:25 by ibaby             #+#    #+#             */
+/*   Updated: 2024/05/19 20:19:34 by ibaby            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include <stdlib.h>
 
@@ -38,7 +50,7 @@ static t_list	*ft_lstdup(t_list *lst)
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *newlist;
+	t_list	*newlist;
 
 	if (!(newlist = ft_lstdup(lst)))
 	{
@@ -52,15 +64,16 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *new_lst;
-	t_list *elem;
+	t_list	*new_lst;
+	t_list	*elem;
 
 	if (!lst)
 		return (0);
 	new_lst = 0;
 	while (lst)
 	{
-		if (!(elem = ft_lstnew(f(lst->content))))
+		elem = ft_lstnew(f(lst->content));
+		if (!elem)
 		{
 			ft_lstclear(&new_lst, del);
 			return (0);
