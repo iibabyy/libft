@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:34:30 by ibaby             #+#    #+#             */
-/*   Updated: 2024/03/31 22:34:30 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/05/19 19:32:15 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t n)
 {
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
 	char	*retval;
 
 	i = 0;
 	j = 0;
-	if (ft_strlen((char *)little) == 0 || !little)
+	if (ft_strlen((char *)little) == 0)
 		return ((char *)big);
-	while (big[i] && i < (int)n)
+	while (big[i] && i < n)
 	{
 		if (big[i] == little[j])
 		{
 			while (big[i + j] == little[j] && big[i + j] && little[j] && i
-				+ j < (int)n)
+				+ j < n)
 			{
-				if (j + 1 == (int)ft_strlen((char *)little))
+				if (j + 1 == ft_strlen((char *)little))
 					return (retval = (char *)&big[i], retval);
 				j++;
 			}
@@ -44,9 +44,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t n)
 #include <stdlib.h>
 #include <unistd.h>
 
-static void	ft_print_result(char const *s)
+static void	ft_prsize_t_result(char const *s)
 {
-	int	len;
+	size_t	len;
 
 	len = 0;
 	while (s[len])
@@ -54,19 +54,19 @@ static void	ft_print_result(char const *s)
 	write(1, s, len);
 }
 
-static void	check_strnstr(char *big, char *little, int len)
+static void	check_strnstr(char *big, char *little, size_t len)
 {
 	const char	*str;
 
 	if (!(str = ft_strnstr(big, little, len)))
-		ft_print_result("NULL");
+		ft_prsize_t_result("NULL");
 	else
-		ft_print_result(str);
+		ft_prsize_t_result(str);
 }
 
-int	main(int argc, const char *argv[])
+size_t	main(size_t argc, const char *argv[])
 {
-	int	arg;
+	size_t	arg;
 
 	alarm(5);
 	if (argc == 1)
