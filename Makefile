@@ -31,7 +31,13 @@ SRCS = ft_memset.c        \
         ft_putchar_fd.c    \
         ft_putstr_fd.c    \
         ft_putendl_fd.c    \
-        ft_putnbr_fd.c
+        ft_putnbr_fd.c   \
+        get_next_line.c \
+        get_next_line_utils.c   \
+        ft_printf.c     \
+        ft_printf_utils.c       \
+        ft_printf_converts.c    \
+
 
 SRCSB =    ft_lstnew.c            \
         ft_lstadd_front.c    \
@@ -45,7 +51,7 @@ SRCSB =    ft_lstnew.c            \
         $(SRCS)
 
 NAME = libft.a
-
+LIBS = libft.h ft_printf.h get_next_line.h
 OBJS_DIR = objs/
 OBJS = $(SRCS:.c=.o)
 OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
@@ -53,11 +59,11 @@ OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 OBJSB = $(SRCSB:.c=.o)
 OBJECTS_BONUS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJSB))
 
-CC = clang
+CC = cc
 
 CC_FLAGS = -Wall -Wextra -Werror
 
-$(OBJS_DIR)%.o : %.c libft.h
+$(OBJS_DIR)%.o : %.c $(LIBS)
 	@mkdir -p $(OBJS_DIR)
 	@echo "Compiling: $<"
 	@clang $(CC_FLAGS) -c $< -o $@
