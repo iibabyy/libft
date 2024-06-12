@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   ft_re_strdup.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/29 22:20:37 by ibaby             #+#    #+#             */
-/*   Updated: 2024/06/12 16:39:03 by ibaby            ###   ########.fr       */
+/*   Created: 2024/03/31 22:34:18 by ibaby             #+#    #+#             */
+/*   Updated: 2024/06/11 22:04:31 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
+#include <stdlib.h>
 
-int	is_nl(char *str)
+char	*ft_re_strdup(char *src)
 {
-	int	i;
+	char	*str;
+	int		size;
 
-	i = 0;
-	if (str == 0)
-		return (0);
-	while (str[i])
-	{
-		if (str[i] == '\n')
-			return (1);
-		i++;
-	}
-	return (0);
+	size = ft_strlen((char *)src) + 1;
+	str = malloc(sizeof(char) * size);
+	if (!str)
+		return (free(src), NULL);
+	ft_strlcpy(str, src, size);
+	free(src);
+	return (str);
 }

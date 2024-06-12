@@ -6,14 +6,15 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 22:20:39 by ibaby             #+#    #+#             */
-/*   Updated: 2024/06/09 23:36:34 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/06/12 16:38:48 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "libft.h"
 
 #ifndef MAX_FD
-# define MAX_FD 256
+# define MAX_FD 20
 #endif
 
 char	*get_next_line(int fd)
@@ -24,7 +25,7 @@ char	*get_next_line(int fd)
 	int			byte_read;
 
 	if (fd < 0 || fd >= MAX_FD || BUFFER_SIZE <= 0)
-		return (0);
+		return (NULL);
 	byte_read = 1;
 	str = ft_strdup(save[fd]);
 	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
@@ -35,11 +36,13 @@ char	*get_next_line(int fd)
 		byte_read = read(fd, buffer, BUFFER_SIZE);
 		if (byte_read < 0)
 			return (ft_clean(save[fd]), free(buffer), free(str), NULL);
-		free((buffer[byte_read] = '\0', str = ft_strjoin(str, buffer), NULL));
+		free((buffer[byte_read] = '\0', str = ft_re_strjoin(str, buffer), NULL));
 		if (!str)
 			return (free(buffer), NULL);
 	}
-	free((after_line(str, save[fd]), str = re_before_line(str), buffer));
+	after_line(str, save[fd]);
+	str = re_before_line(str);
+	free(buffer);
 	return (str);
 }
 
@@ -55,7 +58,7 @@ void	ft_clean(char *save)
 		save[i] = '\0';
 		i++;
 	}
-	ft_strcpy(save, save + i + 1);
+	ft_strlcpy(save, save + i + 1, BUFFER_SIZE + 1);
 }
 
 void	after_line(char *str, char *save)
@@ -74,7 +77,7 @@ void	after_line(char *str, char *save)
 		*save = '\0';
 		return ;
 	}
-	ft_strcpy(save, str + i);
+	ft_strlcpy(save, str + i, BUFFER_SIZE + 1);
 }
 
 char	*re_before_line(char *all)

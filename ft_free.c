@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/29 22:20:37 by ibaby             #+#    #+#             */
-/*   Updated: 2024/06/12 16:39:03 by ibaby            ###   ########.fr       */
+/*   Created: 2024/06/12 21:21:13 by ibaby             #+#    #+#             */
+/*   Updated: 2024/06/12 21:22:22 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-int	is_nl(char *str)
+void	ft_free(void **elem)
 {
-	int	i;
-
-	i = 0;
-	if (str == 0)
-		return (0);
-	while (str[i])
-	{
-		if (str[i] == '\n')
-			return (1);
-		i++;
-	}
-	return (0);
+	if (*elem == NULL)
+		return ;
+	free(*elem);
+	*elem = NULL;
 }
