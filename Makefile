@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #	colors	#
 
 BLACK=	$(shell tput -Txterm setaf 0)
@@ -12,8 +11,6 @@ END= 	$(shell tput -Txterm sgr0)
 #			#
 
 
-=======
->>>>>>> origin/main
 SRCS = ft_memset.c        		\
         ft_bzero.c        		\
         ft_memcpy.c        		\
@@ -60,12 +57,8 @@ SRCS = ft_memset.c        		\
 		multi_re_strjoin.c		\
 		ft_strcmp.c				\
 		ft_free.c				\
-<<<<<<< HEAD
 		ft_close_fd.c			\
 		print_2d_array_nl.c		\
-=======
-		ft_close_fd.c				\
->>>>>>> origin/main
 
 SRCSB =    ft_lstnew.c			\
         ft_lstadd_front.c		\
@@ -93,11 +86,7 @@ CC_FLAGS = -Wall -Wextra -Werror
 
 $(OBJS_DIR)%.o : %.c $(LIBS)
 	@mkdir -p $(OBJS_DIR)
-<<<<<<< HEAD
 	@echo "$(YELLOW)Compiling: $<$(END)"
-=======
-	@echo "Compiling: $<"
->>>>>>> origin/main
 	@$(CC) $(CC_FLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS_PREFIXED)

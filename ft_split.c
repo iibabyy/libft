@@ -6,18 +6,12 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 20:14:21 by ibaby             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/06/13 17:41:05 by ibaby            ###   ########.fr       */
-=======
-/*   Updated: 2024/06/11 12:25:06 by ibaby            ###   ########.fr       */
->>>>>>> origin/main
+/*   Updated: 2024/06/14 16:35:55 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
-
-void	free_2d_array(void **NULL_terminated_2d_array);
 
 static int	count_words(const char *s, char c)
 {
@@ -110,97 +104,7 @@ char	**ft_split(const char *s, char sep)
 		return (NULL);
 	check = ft_split_2(s, split, sep, words);
 	if (check == -1)
-<<<<<<< HEAD
 		return (free_2d_array((void ***)&split), NULL);
-=======
-		return (free_2d_array((void *)split), NULL);
->>>>>>> origin/main
 	split[words] = NULL;
 	return (split);
 }
-
-/*int main()
-{
-	char	**split;
-	int		i;
-
-	split = ft_split("ggggggggggg", 'g');
-	i = 0;
-	while (split[i])
-		ft_putstr_fd(split[i], 1);
-	return (0);
-}
-*/
-
-/*
-#include <stdio.h>
-#include <unistd.h>
-
-static void	ft_print_result(char const *s)
-{
-	int	len;
-
-	len = 0;
-	while (s[len])
-		len++;
-	write(1, s, len);
-}
-
-static void	ft_print_tabstr(char **tabstr)
-{
-	int	i;
-
-	i = 0;
-	while (tabstr[i] != NULL)
-	{
-		ft_print_result(tabstr[i]);
-		if (tabstr[i + 1])
-			write(1, "\n", 1);
-		free(tabstr[i]);
-		i++;
-	}
-	free(tabstr);
-}
-
-static void	check_split(char *s, char c)
-{
-	char	**tabstr;
-
-	if (!(tabstr = ft_split(s, c)))
-		ft_print_result("NULL");
-	else
-		ft_print_tabstr(tabstr);
-}
-
-int	main(int argc, const char *argv[])
-{
-	int	arg;
-
-	alarm(5);
-	if (argc == 1)
-		return (0);
-	if ((arg = atoi(argv[1])) == 1)
-		check_split("          ", ' ');
-	else if (arg == 2)
-		check_split("lorem ipsum dolor sit amet,
-			consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
-	else if (arg == 3)
-	{
-		check_split("   lorem   ipsum dolor     sit amet,
-			consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ');
-	}
-	else if (arg == 4)
-		check_split("lorem ipsum dolor sit amet,
-			consectetur adipiscing elit. Sed non risus. Suspendisse lectus
-			tortor, dignissim sit amet, adipiscing nec, ultricies sed,
-			dolor. Cras elementum ultricies diam. Maecenas ligula massa,
-			varius a, semper congue, euismod non, mi.", 'i');
-	else if (arg == 5)
-		check_split("lorem ipsum dolor sit amet,
-			consectetur adipiscing elit. Sed non risus. Suspendisse lectus
-			tortor, dignissim sit amet, adipiscing nec, ultricies sed,
-			dolor. Cras elementum ultricies diam. Maecenas ligula massa,
-			varius a, semper congue, euismod non, mi.", 'z');
-	return (0);
-}
-*/
