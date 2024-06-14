@@ -6,7 +6,11 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:34:18 by ibaby             #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/06/13 17:18:32 by ibaby            ###   ########.fr       */
+=======
+/*   Updated: 2024/06/10 15:34:41 by ibaby            ###   ########.fr       */
+>>>>>>> origin/main
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +25,11 @@ char	*ft_strdup(const char *src)
 	size = ft_strlen((char *)src) + 1;
 	str = malloc(sizeof(char) * size);
 	if (!str)
+<<<<<<< HEAD
 		return (NULL);
+=======
+		return (str = 0);
+>>>>>>> origin/main
 	ft_strlcpy(str, src, size);
 	return (str);
 }

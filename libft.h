@@ -6,7 +6,11 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:35:02 by ibaby             #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/06/13 20:47:24 by ibaby            ###   ########.fr       */
+=======
+/*   Updated: 2024/06/12 21:26:11 by ibaby            ###   ########.fr       */
+>>>>>>> origin/main
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +22,7 @@
 # include "get_next_line.h"
 
 char		*ft_re_strjoin(const char *s1, const char *s2);
+<<<<<<< HEAD
 void		free_2d_array(void ***NULL_terminated_2d_array);
 char		*ft_re_strdup(char *src);
 char		*multi_strjoin(int strings_number, char *s1, char *s2, ...);
@@ -30,6 +35,19 @@ int			ft_putchar_fd(char c, int fd);
 int			ft_putstr_fd(char *s, int fd);
 int			ft_putnbr_fd(int n, int fd);
 int			ft_putendl_fd(char *s, int fd);
+=======
+void	free_2d_array(void **NULL_terminated_2d_array);
+char	*ft_re_strdup(char *src);
+char	*multi_strjoin(int strings_number, char *s1, char *s2, ...);
+char	*multi_re_strjoin(int strings_number, char *s1, char *s2, ...);
+void		ft_close_fd(int *fd);
+void		ft_free(void **elem);
+
+void		ft_putchar_fd(char c, int fd);
+void		ft_putstr_fd(char *s, int fd);
+void		ft_putnbr_fd(int n, int fd);
+void		ft_putendl_fd(char *s, int fd);
+>>>>>>> origin/main
 
 int			ft_isascii(char c);
 int			ft_isalnum(char c);

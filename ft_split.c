@@ -6,12 +6,18 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 20:14:21 by ibaby             #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/06/13 17:41:05 by ibaby            ###   ########.fr       */
+=======
+/*   Updated: 2024/06/11 12:25:06 by ibaby            ###   ########.fr       */
+>>>>>>> origin/main
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
+
+void	free_2d_array(void **NULL_terminated_2d_array);
 
 static int	count_words(const char *s, char c)
 {
@@ -104,7 +110,11 @@ char	**ft_split(const char *s, char sep)
 		return (NULL);
 	check = ft_split_2(s, split, sep, words);
 	if (check == -1)
+<<<<<<< HEAD
 		return (free_2d_array((void ***)&split), NULL);
+=======
+		return (free_2d_array((void *)split), NULL);
+>>>>>>> origin/main
 	split[words] = NULL;
 	return (split);
 }
