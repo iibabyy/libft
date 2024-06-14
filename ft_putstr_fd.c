@@ -6,23 +6,25 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 20:14:26 by ibaby             #+#    #+#             */
-/*   Updated: 2024/05/19 20:14:27 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/06/13 20:35:24 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
 	i = 0;
 	while (s[i])
 	{
-		ft_putchar_fd(s[i], fd);
+		if (ft_putchar_fd(s[i], fd) < 0)
+			return (-1);
 		i++;
 	}
+	return (i);
 }
 
 /*

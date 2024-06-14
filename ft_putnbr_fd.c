@@ -6,32 +6,35 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 20:14:29 by ibaby             #+#    #+#             */
-/*   Updated: 2024/05/19 20:14:30 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/06/13 20:47:17 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd(int n, int fd)
 {
 	long	c;
+	int check;
 
 	c = (long)n;
+	check = 0;
 	if (c < 0)
 	{
-		ft_putchar_fd('-', fd);
+		check += ft_putchar_fd('-', fd);
 		c = -c;
 	}
 	if (c >= 10)
 	{
-		ft_putnbr_fd((c / 10), fd);
-		ft_putnbr_fd((c % 10), fd);
+		check += ft_putnbr_fd((c / 10), fd);
+		check += ft_putnbr_fd((c % 10), fd);
 	}
 	else if (c <= 9)
 	{
-		ft_putchar_fd((c + 48), fd);
+		check += ft_putchar_fd((c + 48), fd);
 	}
+	return (check);
 }
 
 /*#include <stdlib.h>

@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   free_2d_array.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/29 22:20:37 by ibaby             #+#    #+#             */
-/*   Updated: 2024/06/12 16:39:03 by ibaby            ###   ########.fr       */
+/*   Created: 2024/06/11 12:05:57 by ibaby             #+#    #+#             */
+/*   Updated: 2024/06/13 21:59:29 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
+#include <stdlib.h>
 
-int	is_nl(char *str)
+void	free_2d_array(void ***NULL_terminated_2d_array)
 {
-	int	i;
+	int		i;
 
 	i = 0;
-	if (str == 0)
-		return (0);
-	while (str[i])
+	if (!(*NULL_terminated_2d_array))
+		return ;
+	while ((*NULL_terminated_2d_array)[i])
 	{
-		if (str[i] == '\n')
-			return (1);
+		free((*NULL_terminated_2d_array)[i]);
 		i++;
 	}
-	return (0);
+	free((*NULL_terminated_2d_array));
+	(*NULL_terminated_2d_array) = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 20:14:21 by ibaby             #+#    #+#             */
-/*   Updated: 2024/05/19 21:37:09 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/06/13 17:41:05 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*ft_strtrim2(char const *s1, char sep)
 	return (str);
 }
 
-void	ft_split_2(const char *s, char **split, char sep, int words)
+int	ft_split_2(const char *s, char **split, char sep, int words)
 {
 	int	i;
 	int	j;
@@ -71,27 +71,42 @@ void	ft_split_2(const char *s, char **split, char sep, int words)
 		while (s[i] != sep && s[i])
 			i++;
 		split[j] = malloc(sizeof(char) * (i - start + 1));
+		if (!split[j])
+			return (-1);
 		ft_memmove(split[j], (s + start), (i - start));
 		split[j][i - start] = '\0';
 		while (s[i] == sep)
 			i++;
 		j++;
 	}
+	return (0);
 }
 
 char	**ft_split(const char *s, char sep)
 {
 	int		words;
 	char	**split;
+	int		check;
 
 	words = count_words(s, sep);
 	if (s[ft_strlen(s) - 1] == sep)
 		words--;
 	if (words < 0 || *s == '\0')
-		return (split = malloc(sizeof(char *) * 1), split[0] = NULL, split);
+	{
+		split = malloc(sizeof(char *) * 1);
+		if (!split)
+			return (NULL);
+		split[0] = NULL;
+		return (split);
+	}
 	split = malloc(sizeof(char *) * (words + 1));
-	ft_split_2(s, split, sep, words);
-	return (split[words] = NULL, split);
+	if (!split)
+		return (NULL);
+	check = ft_split_2(s, split, sep, words);
+	if (check == -1)
+		return (free_2d_array((void ***)&split), NULL);
+	split[words] = NULL;
+	return (split);
 }
 
 /*int main()
