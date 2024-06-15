@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 20:14:34 by ibaby             #+#    #+#             */
-/*   Updated: 2024/06/13 20:37:54 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/06/15 00:38:03 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_putendl_fd(char *s, int fd)
 {
 	int	check;
 
+	if (!s)
+		return (0);
 	check = ft_putstr_fd(s, fd);
 	if (check < 0)
 		return (-1);

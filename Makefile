@@ -50,15 +50,15 @@ SRCS = ft_memset.c        		\
         ft_printf.c     		\
         ft_printf_utils.c       \
         ft_printf_converts.c    \
-		ft_re_strjoin.c			\
-		free_2d_array.c			\
-		ft_re_strdup.c			\
-		multi_strjoin.c			\
-		multi_re_strjoin.c		\
-		ft_strcmp.c				\
-		ft_free.c				\
-		ft_close_fd.c			\
-		print_2d_array_nl.c		\
+	ft_re_strjoin.c			\
+	free_2d_array.c			\
+	ft_re_strdup.c			\
+	multi_strjoin.c			\
+	multi_re_strjoin.c		\
+	ft_strcmp.c				\
+	ft_free.c				\
+	ft_close_fd.c			\
+	print_2d_array_nl.c		\
 
 SRCSB =    ft_lstnew.c			\
         ft_lstadd_front.c		\
