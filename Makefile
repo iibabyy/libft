@@ -83,14 +83,14 @@ OBJECTS_BONUS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJSB))
 
 CC = cc
 
-CC_FLAGS = -Wall -Wextra -Werror
+CC_FLAGS = -Wall -Wextra -Werror -fPIE
 
 $(OBJS_DIR)%.o : %.c $(LIBS)
 	@mkdir -p $(OBJS_DIR)
 	@echo "$(YELLOW)Compiling: $<$(END)"
 	@$(CC) $(CC_FLAGS) -c $< -o $@
 
-$(NAME): $(OBJECTS_PREFIXED)
+$(NAME): $(OBJECTS_PREFIXED) $(SRCS)
 	@ar r $(NAME) $(OBJECTS_PREFIXED)
 	@echo "$(GREEN)Libft Done !$(END)"
 
@@ -101,10 +101,11 @@ clean:
 	@echo "$(BLUE)remove objects$(END)"
 
 fclean: clean
+	@rm -rf $(NAME)
 	@echo "$(BLUE)remove $(NAME)$(END)"
 
 re: fclean all
 
-bonus: $(OBJECTS_BONUS_PREFIXED)
+bonus: $(OBJECTS_BONUS_PREFIXED) $(SRCSB)
 	@ar r $(NAME) $(OBJECTS_BONUS_PREFIXED)
 	@echo "$(GREEN)Libft Bonus Done !$(END)"
