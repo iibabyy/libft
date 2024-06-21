@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 22:20:39 by ibaby             #+#    #+#             */
-/*   Updated: 2024/06/19 23:02:50 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/06/21 10:16:31 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ char	*get_next_line(int fd)
 	}
 	after_line(str, save[fd]);
 	str = re_before_line(str);
+	if (!str[0])
+	{
+		free(str);
+		str = NULL;
+	}
 	return (free(buffer), str);
 }
 

@@ -21,7 +21,7 @@ OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 
 CC = cc
 
-CC_FLAGS = -Wall -Wextra -Werror -fPIE
+CC_FLAGS = -Wall -Wextra -Werror -fPIE -g3
 
 all: $(NAME)
 
@@ -32,7 +32,7 @@ $(OBJS_DIR)%.o : %.c $(LIBS)
 
 $(NAME): $(OBJECTS_PREFIXED) $(SRCS)
 	@ar r $(NAME) $(OBJECTS_PREFIXED)
-	@echo "$(GREEN)Libft Done !$(END)"
+	@echo "$(GREEN)Libft Done ! ✅$(END)"
 
 clean:
 	@rm -rf $(OBJS_DIR)
