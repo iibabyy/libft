@@ -11,7 +11,7 @@ END= 	$(shell tput -Txterm sgr0)
 #			#
 
 
-SRCS =	$(wildcard $(SRC_PATH)*.c)			\
+SRCS =	$(wildcard *.c)			\
 
 NAME = libft.a
 LIBS = libft.h ft_printf.h get_next_line.h
