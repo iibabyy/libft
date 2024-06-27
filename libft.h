@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:35:02 by ibaby             #+#    #+#             */
-/*   Updated: 2024/06/24 16:39:05 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/06/27 02:13:57 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ char		*re_join_get_next_line(int fd, char **str_address);
 void		print_err_and_exit(const char *err, int code, bool erno);
 int			count_char(char *str, char char_to_count);
 int			count_char_2d(char **array, char char_to_count);
+void		*ft_realloc(void *buffer, int buffer_size,
+				int new_size, int sizeof_type);
 
 int			ft_putchar_fd(char c, int fd);
 int			ft_putstr_fd(const char *s, int fd);

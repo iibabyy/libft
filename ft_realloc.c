@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_char.c                                       :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/27 02:14:46 by ibaby             #+#    #+#             */
-/*   Updated: 2024/06/27 02:14:47 by ibaby            ###   ########.fr       */
+/*   Created: 2024/06/27 02:14:13 by ibaby             #+#    #+#             */
+/*   Updated: 2024/06/27 02:14:30 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_char(char *str, char char_to_count)
+void	*ft_realloc(void *buffer, int buffer_size, int size, int sizeof_type)
 {
-	int	i;
-	int	count;
+	unsigned char	*ptr;
+	int				i;
 
 	i = 0;
-	count = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == char_to_count)
-			++count;
-		i++;
-	}
-	return (count);
+	ptr = malloc(new_size * sizeof_type);
+	ft_memcpy(ptr, buffer, new_size * sizeof_type);
+	ft_free(buffer);
+	return (ptr);
 }
