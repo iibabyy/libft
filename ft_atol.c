@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_re_strjoin.c                                    :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/31 22:34:20 by ibaby             #+#    #+#             */
-/*   Updated: 2024/06/28 12:10:09 by ibaby            ###   ########.fr       */
+/*   Created: 2024/06/29 07:45:53 by ibaby             #+#    #+#             */
+/*   Updated: 2024/06/29 08:02:38 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
-
-char	*ft_re_strjoin(const char *s1, const char *s2)
+long int	ft_atol(const char *str)
 {
-	size_t	len;
-	char	*str;
+	int		i;
+	int		sign;
+	long	number;
 
-	len = ft_strlen(s1) + ft_strlen(s2);
-	str = malloc(sizeof(char) * (len + 1));
-	if (!str)
+	i = 0;
+	sign = 1;
+	number = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		ft_free((void **)&s1);
-		return (NULL);
+		if (str[i] == '-')
+			sign = -sign;
+		i++;
 	}
-	ft_strlcpy(str, s1, ft_strlen(s1) + 1);
-	ft_strlcat(str, s2, len + 1);
-	ft_free((void **)&s1);
-	return (str);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		number = number * 10 + (str[i] - '0');
+		i++;
+	}
+	return (number * sign);
 }

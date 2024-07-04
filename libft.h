@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:35:02 by ibaby             #+#    #+#             */
-/*   Updated: 2024/06/27 02:18:04 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/06/29 08:23:49 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stddef.h>
 # include <stdio.h>
 # include <stdbool.h>
+# include <limits.h>
 # include "ft_printf.h"
 # include "get_next_line.h"
 
@@ -34,6 +35,7 @@ int			count_char(char *str, char char_to_count);
 int			count_char_2d(char **array, char char_to_count);
 void		*ft_realloc(void *buffer, int buffer_size,
 				size_t new_size, size_t sizeof_type);
+long int	ft_atol(const char *str);
 
 int			ft_putchar_fd(char c, int fd);
 int			ft_putstr_fd(const char *s, int fd);

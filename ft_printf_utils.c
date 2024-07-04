@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 19:18:10 by ibaby             #+#    #+#             */
-/*   Updated: 2024/06/15 17:31:15 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/06/27 16:23:40 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	print_pointer(void *pointer)
 	int				check;
 	int				temp;
 
-	if (pointer == 0)
+	if (pointer == NULL)
 	{
 		write(1, "(nil)", 5);
 		return (5);

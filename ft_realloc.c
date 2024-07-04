@@ -12,7 +12,8 @@
 
 #include "libft.h"
 
-void	*ft_realloc(void *buffer, int buffer_size, size_t size, size_t sizeof_type)
+void	*ft_realloc(void *buffer, int buffer_size, size_t size,
+		size_t sizeof_type)
 {
 	unsigned char	*ptr;
 
