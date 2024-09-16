@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   re_get_next_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/19 20:19:45 by ibaby             #+#    #+#             */
-/*   Updated: 2024/09/16 17:07:00 by ibaby            ###   ########.fr       */
+/*   Created: 2024/06/27 02:11:07 by ibaby             #+#    #+#             */
+/*   Updated: 2024/08/01 07:53:01 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
 
-t_list	*ft_lstlast(t_list *lst) {
-  if (!lst)
-    return (0);
-  while (lst->next) {
-    lst = lst->next;
-  }
-  return (lst);
+char	*re_join_gnl(int fd, char *str_address)
+{
+	char	*gnl;
+
+	gnl = get_next_line(fd);
+	if (gnl == NULL)
+		return (ft_free(str_address), NULL);
+	if (str_address == NULL)
+		return (gnl);
+	gnl = ft_re_strjoin(str_address, gnl);
+	return (gnl);
 }

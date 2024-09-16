@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   malloc_failed.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/19 20:19:45 by ibaby             #+#    #+#             */
-/*   Updated: 2024/09/16 17:07:00 by ibaby            ###   ########.fr       */
+/*   Created: 2024/09/16 17:12:35 by ibaby             #+#    #+#             */
+/*   Updated: 2024/09/16 17:13:06 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst) {
-  if (!lst)
-    return (0);
-  while (lst->next) {
-    lst = lst->next;
-  }
-  return (lst);
+void	malloc_failed(char *err)
+{
+	return ;
 }

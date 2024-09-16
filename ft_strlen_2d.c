@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_strlen_2d.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/19 20:19:45 by ibaby             #+#    #+#             */
-/*   Updated: 2024/09/16 17:07:00 by ibaby            ###   ########.fr       */
+/*   Created: 2024/08/03 13:10:26 by ibaby             #+#    #+#             */
+/*   Updated: 2024/09/16 17:01:38 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst) {
-  if (!lst)
-    return (0);
-  while (lst->next) {
-    lst = lst->next;
-  }
-  return (lst);
+size_t	ft_strlen_2d(char **str_2d)
+{
+	int	i;
+
+	i = 0;
+	while (str_2d[i] != NULL)
+		++i;
+	return (i);
 }

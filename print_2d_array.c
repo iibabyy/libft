@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   print_2d_array.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/19 20:19:45 by ibaby             #+#    #+#             */
-/*   Updated: 2024/09/16 17:07:00 by ibaby            ###   ########.fr       */
+/*   Created: 2024/06/16 13:29:32 by ibaby             #+#    #+#             */
+/*   Updated: 2024/09/16 17:01:38 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst) {
-  if (!lst)
-    return (0);
-  while (lst->next) {
-    lst = lst->next;
-  }
-  return (lst);
+int	print_2d_array(char **NULL_TERMINATED_ARRAY)
+{
+	int	i;
+	int	check;
+	int	temp;
+
+	i = 0;
+	check = 0;
+	while (NULL_TERMINATED_ARRAY[i])
+	{
+		if (i != 0)
+			temp = ft_putstr_fd(" ", 1);
+		temp = ft_putstr_fd(NULL_TERMINATED_ARRAY[i], 1);
+		if (temp < 0)
+			return (-1);
+		if (temp < 0)
+			return (-1);
+		check += temp;
+		i++;
+	}
+	return (check);
 }

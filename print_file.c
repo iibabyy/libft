@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   print_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/19 20:19:45 by ibaby             #+#    #+#             */
-/*   Updated: 2024/09/16 17:07:00 by ibaby            ###   ########.fr       */
+/*   Created: 2024/08/04 22:12:30 by ibaby             #+#    #+#             */
+/*   Updated: 2024/09/16 17:01:38 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst) {
-  if (!lst)
-    return (0);
-  while (lst->next) {
-    lst = lst->next;
-  }
-  return (lst);
+/*	Print the content of the file pointed by fd
+Return 1 if an Error occurs, and 0 otherwise*/
+int	print_file(int fd)
+{
+	char	*file;
+
+	file = read_file(fd);
+	if (file == NULL)
+		return (EXIT_FAILURE);
+	if (ft_putstr_fd(file, STDOUT_FILENO) == -1)
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }

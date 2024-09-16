@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_remove_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/31 22:34:14 by ibaby             #+#    #+#             */
+/*   Created: 2024/07/31 07:17:02 by ibaby             #+#    #+#             */
 /*   Updated: 2024/09/16 17:01:38 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stddef.h>
 
-void	*ft_memset(void *adress, int value, size_t hmany)
+/*Return an allocated copy of the str 
+without the char c in parameter
+Return NULL if an error occurs*/
+char	*ft_remove_char(char *str, char c)
 {
-	unsigned char	*tab;
+	char	*new;
+	int		size;
+	int		i;
+	int		j;
 
-	tab = adress;
-	while (hmany--)
-		*tab++ = value;
-	return (adress);
+	size = ft_strlen(str) - count_char(str, c);
+	if (size == 0 || c == '\0')
+		return (NULL);
+	new = ft_malloc(sizeof(char) * (size + 1));
+	if (new == NULL)
+		return (malloc_failed("ft_remove_char"), NULL);
+	i = -1;
+	j = -1;
+	while (str[++i])
+	{
+		if (str[i] != c)
+			new[++j] = str[i];
+	}
+	new[j] = '\0';
+	return (new);
 }

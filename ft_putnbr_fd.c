@@ -6,71 +6,57 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 20:14:29 by ibaby             #+#    #+#             */
-/*   Updated: 2024/06/13 20:47:17 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/09/16 17:01:38 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
+
+static int	put_more_than_10(int c, int fd);
 
 int	ft_putnbr_fd(int n, int fd)
 {
 	long	c;
 	int		check;
+	int		temp;
 
-	c = (long)n;
-	check = 0;
+	free((c = (long)n, check = 0, temp = 0, NULL));
 	if (c < 0)
 	{
-		check += ft_putchar_fd('-', fd);
-		c = -c;
+		if (ft_putchar_fd('-', fd) == -1)
+			return (-1);
+		free((++check, c = -c, NULL));
 	}
 	if (c >= 10)
 	{
-		check += ft_putnbr_fd((c / 10), fd);
-		check += ft_putnbr_fd((c % 10), fd);
+		temp = put_more_than_10(c, fd);
+		if (temp == -1)
+			return (-1);
+		check += temp;
 	}
 	else if (c <= 9)
 	{
-		check += ft_putchar_fd((c + 48), fd);
+		if (ft_putchar_fd((c + 48), fd) == -1)
+			return (-1);
+		++check;
 	}
 	return (check);
 }
 
-/*#include <stdlib.h>
-
-int	main(int ac, char **av)
+static int	put_more_than_10(int c, int fd)
 {
-	if (ac == 2)
-		ft_putnbr_fd(atoi(av[1]), 1);
-	return (0);
+	int	temp;
+	int	check;
+
+	temp = 0;
+	check = 0;
+	temp = ft_putnbr_fd((c / 10), fd);
+	if (temp == -1)
+		return (-1);
+	check += temp;
+	temp = ft_putnbr_fd((c % 10), fd);
+	if (temp == -1)
+		return (-1);
+	check += temp;
+	return (check);
 }
-*/
-
-/*int		main(int argc, const char *argv[])
-{
-	int		arg;
-
-	alarm(5);
-	if (argc == 1)
-		return (0);
-	else if ((arg = atoi(argv[1])) == 1)
-		ft_putnbr_fd(0, 2);
-	else if (arg == 2)
-		ft_putnbr_fd(5, 1);
-	else if (arg == 3)
-		ft_putnbr_fd(-5, 2);
-	else if (arg == 4)
-		ft_putnbr_fd(42, 1);
-	else if (arg == 5)
-		ft_putnbr_fd(-57, 2);
-	else if (arg == 6)
-		ft_putnbr_fd(164189, 1);
-	else if (arg == 7)
-		ft_putnbr_fd(-987441, 2);
-	else if (arg == 8)
-		ft_putnbr_fd(2147483647, 1);
-	else if (arg == 9)
-		ft_putnbr_fd(-2147483648LL, 2);
-	return (0);
-}*/

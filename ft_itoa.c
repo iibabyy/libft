@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:33:55 by ibaby             #+#    #+#             */
-/*   Updated: 2024/06/19 22:52:50 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/09/16 17:01:38 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,9 @@ char	*ft_itoa(int n)
 		c = -c;
 		i = 1;
 	}
-	str = malloc(sizeof(char) * (numlen(c) + 5));
+	str = ft_malloc(sizeof(char) * (numlen(c) + 5));
 	if (!str)
-		return (0);
+		return (malloc_failed("ft_itoa"), NULL);
 	while (c)
 	{
 		str[i++] = c % 10 + '0';

@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/19 20:19:45 by ibaby             #+#    #+#             */
-/*   Updated: 2024/09/16 17:07:00 by ibaby            ###   ########.fr       */
+/*   Created: 2024/08/04 22:12:18 by ibaby             #+#    #+#             */
+/*   Updated: 2024/09/16 17:01:38 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst) {
-  if (!lst)
-    return (0);
-  while (lst->next) {
-    lst = lst->next;
-  }
-  return (lst);
+char	*read_file(int fd)
+{
+	char	*temp;
+	char	*str;
+
+	temp = get_next_line(fd);
+	if (temp == NULL)
+		return (NULL);
+	str = NULL;
+	while (temp != NULL)
+	{
+		str = ft_re_strjoin(str, temp);
+		ft_free(temp);
+		if (str == NULL)
+			return (NULL);
+		temp = get_next_line(fd);
+	}
+	return (str);
 }

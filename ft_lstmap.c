@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 20:18:25 by ibaby             #+#    #+#             */
-/*   Updated: 2024/05/19 20:19:34 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/09/16 17:07:00 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static t_list	*ft_lstdup(t_list *lst)
 
 	if (!lst)
 		return (NULL);
-	if (!(newhead = malloc(sizeof(t_list))))
+	if (!(newhead = ft_malloc(sizeof(t_list))))
 		return (NULL);
 	newhead = lst;
 	originalnode = lst->next;

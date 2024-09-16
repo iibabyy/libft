@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/31 22:34:14 by ibaby             #+#    #+#             */
+/*   Created: 2024/08/31 18:57:19 by ibaby             #+#    #+#             */
 /*   Updated: 2024/09/16 17:01:38 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stddef.h>
 
-void	*ft_memset(void *adress, int value, size_t hmany)
+char	*ft_strstr(const char *big, const char *little)
 {
-	unsigned char	*tab;
+	size_t	i;
+	size_t	j;
+	char	*retval;
 
-	tab = adress;
-	while (hmany--)
-		*tab++ = value;
-	return (adress);
+	i = 0;
+	j = 0;
+	if (ft_strlen((char *)little) == 0)
+		return ((char *)big);
+	while (big[i])
+	{
+		if (big[i] == little[j])
+		{
+			while (big[i + j] == little[j] && big[i + j] && little[j])
+			{
+				if (j + 1 == ft_strlen((char *)little))
+					return (retval = (char *)&big[i], retval);
+				j++;
+			}
+			j = 0;
+		}
+		i++;
+	}
+	return (NULL);
 }
