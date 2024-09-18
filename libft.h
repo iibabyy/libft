@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:35:02 by ibaby             #+#    #+#             */
-/*   Updated: 2024/09/16 17:13:21 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/09/18 20:23:08 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 void		ft_close_fd(int *fd);
 char		*ft_re_strjoin(const char *s1, const char *s2);
-void		free_2d_array(void ***NULL_terminated_2d_array);
+void		free_2d_str(char **NULL_terminated_2d_array);
 char		*ft_re_strdup(const char *src);
 char		*multi_strjoin(int strings_number, char *s1, char *s2, ...);
 char		*multi_re_strjoin(int strings_number, char *s1, char *s2, ...);
@@ -44,6 +44,7 @@ char		*str_join_2d(char **str_2d, char *sep);
 char		*ft_remove_char(char *str, char c);
 char		*ft_re_remove_char(char *str, char c);
 char		*re_join_gnl(int fd, char *str_address);
+char		**str2d_file(int fd);
 char		*read_file(int fd);
 int			print_file(int fd);
 size_t		ft_strlen_2d(char **str_2d);
@@ -57,6 +58,7 @@ void		print_err_and_exit(const char *err, int code, bool erno);
 void		ft_free(void *elem);
 void		*ft_malloc(size_t size);
 void		malloc_failed(char *err);
+char		*ft_re_strtrim(char const *s1, char const *set);
 
 //	libft functions
 

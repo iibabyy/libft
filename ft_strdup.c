@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:34:18 by ibaby             #+#    #+#             */
-/*   Updated: 2024/09/16 17:01:38 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/09/18 17:57:08 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	**strdup2d(char **str)
 	{
 		res[i] = ft_strdup(str[i]);
 		if (res[i] == NULL)
-			return (free_2d_array((void ***)&res), NULL);
+			return (free_2d_str(res), NULL);
 	}
 	res[i] = NULL;
 	return (res);

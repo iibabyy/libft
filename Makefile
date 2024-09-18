@@ -82,6 +82,10 @@ SRCS =	count_char.c			\
 		ft_strstr.c				\
 		2dstr_join.c			\
 		sort_str2d.c			\
+		ft_malloc.c 			\
+		ft_free.c				\
+		malloc_failed.c			\
+		ft_close_fd.c			\
 
 #	Loading bar	#
 
@@ -103,7 +107,7 @@ CC = cc
 
 CC_FLAGS = -Wall -Wextra -Werror -g3 -fPIE
 
-all: Makefile $(NAME)
+all: $(NAME)
 
 $(OBJS_DIR)%.o : %.c
 	@mkdir -p $(OBJS_DIR)

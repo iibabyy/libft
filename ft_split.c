@@ -6,7 +6,7 @@
 /*   By: ibaby <ibaby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 20:14:21 by ibaby             #+#    #+#             */
-/*   Updated: 2024/09/16 17:01:38 by ibaby            ###   ########.fr       */
+/*   Updated: 2024/09/18 17:57:08 by ibaby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ char	**ft_split(const char *s, char sep)
 		return (malloc_failed("ft_split"), NULL);
 	check = ft_split_2(s, split, sep, words);
 	if (check == -1)
-		return (free_2d_array((void ***)&split), NULL);
+		return (free_2d_str(split), NULL);
 	split[words] = NULL;
 	return (split);
 }
